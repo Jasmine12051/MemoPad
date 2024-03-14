@@ -24,6 +24,10 @@ public class MemoPadDatabaseHandler extends SQLiteOpenHelper {
     public static final String QUERY_GET_ALL_MEMOS = "SELECT * FROM " + TABLE_MEMOS;
     public static final String QUERY_GET_MEMO = "SELECT * FROM " + TABLE_MEMOS + " WHERE " + COLUMN_ID + " = ?";
 
+    public static final String QUERY_DELETE_MEMO = COLUMN_ID + " = ?";
+
+
+
     public MemoPadDatabaseHandler(Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
 
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -52,6 +56,14 @@ public class MemoPadDatabaseHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_MEMOS, null, values);
+        db.close();
+
+    }
+
+    public void deleteMemo(int id) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_MEMOS, QUERY_DELETE_MEMO, new String[]{String.valueOf(id)});
         db.close();
 
     }

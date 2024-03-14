@@ -17,6 +17,10 @@ public class MemoPadController extends AbstractController
         model.addMemo(newText);
     }
 
+    public void deleteMemo(int id) {
+        model.deleteMemo(id);
+    }
+
     public void getAllMemos() {
         model.getAllMemos();
     }

@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements AbstractView {
 
     private final MemoPadItemClickHandler itemClick = new MemoPadItemClickHandler();
 
+    private int selectedId = -1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -93,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements AbstractView {
                     break;
 
                 case "deleteButton":
+                    controller.deleteMemo(selectedId);
                     break;
 
             }
@@ -102,16 +105,16 @@ public class MainActivity extends AppCompatActivity implements AbstractView {
     }
 
     private class MemoPadItemClickHandler implements View.OnClickListener {
+
         @Override
         public void onClick(View v) {
             int position = binding.output.getChildLayoutPosition(v);
             RecyclerViewAdapter adapter = (RecyclerViewAdapter)binding.output.getAdapter();
             if (adapter != null) {
                 Memo memo = adapter.getItem(position);
-                int id = memo.getId();
-                Toast.makeText(v.getContext(), String.valueOf(id), Toast.LENGTH_SHORT).show();
+                selectedId = memo.getId();
+                Toast.makeText(v.getContext(), String.valueOf(selectedId), Toast.LENGTH_SHORT).show();
             }
         }
     }
-
 }

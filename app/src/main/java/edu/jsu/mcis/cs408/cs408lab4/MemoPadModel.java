@@ -24,6 +24,11 @@ public class MemoPadModel extends AbstractModel {
 
     }
 
+    public void deleteMemo(int id) {
+        db.deleteMemo(id);
+        firePropertyChange(MemoPadController.MEMO_LIST_PROPERTY, null, db.getAllMemosAsList());
+    }
+
     public void getAllMemos() {
 
         firePropertyChange(MemoPadController.MEMO_LIST_PROPERTY, null, db.getAllMemosAsList());

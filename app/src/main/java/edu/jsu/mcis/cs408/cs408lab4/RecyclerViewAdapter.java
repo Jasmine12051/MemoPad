@@ -66,7 +66,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
             TextView textLabel = (TextView) itemView.findViewById(R.id.memoTextLabel);
 
-            textLabel.setText(memo.getText());
+            textLabel.setText(memo.toString());
 
         }
 

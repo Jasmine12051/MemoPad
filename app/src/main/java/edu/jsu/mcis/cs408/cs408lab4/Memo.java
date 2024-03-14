@@ -31,7 +31,7 @@ public class Memo {
     public String toString() {
 
         StringBuilder s = new StringBuilder();
-        s.append(text);
+        s.append("#").append(id).append(": ").append(text);
         return s.toString();
 
     }

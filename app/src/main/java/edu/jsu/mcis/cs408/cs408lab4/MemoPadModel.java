@@ -1,6 +1,5 @@
 package edu.jsu.mcis.cs408.cs408lab4;
 
-import android.util.Log;
 
 public class MemoPadModel extends AbstractModel {
 
